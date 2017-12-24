@@ -60,10 +60,16 @@ public class Account {
     }
 
     public void transferTo(Account reciever) {
-        String transferAmount = JOptionPane.showInputDialog(null,"How much do you want to send for [" + reciever.number + "]?","Transfer Amount",JOptionPane.QUESTION_MESSAGE);
-        
+        int transferAmount = Integer.parseInt(JOptionPane.showInputDialog(null,"How much do you want to send for [" + reciever.number + "]?","Transfer Amount",JOptionPane.QUESTION_MESSAGE));
+        if(transferAmount > this.balance) {
+            System.out.println("You don't have this amount of cash. You got only: " + this.balance);
+        }
+        this.balance -= transferAmount;
+        reciever.balance += transferAmount;
+        System.out.println("Successfully transfered $"+transferAmount+" to: " + reciever.getCustomerName());
+        System.out.println("Your balance now is: " + this.balance);
+        }
     }
-}
 
 
 
