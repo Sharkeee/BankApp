@@ -2,15 +2,15 @@ import javax.swing.*;
 
 public class Account {
 
-    private String number;
-    private double balance;
-    private String customerName;
-    private String customerMail;
-    private String customerCellphone;
+    protected String number;
+    protected double balance;
+    protected String customerName;
+    protected String customerMail;
+    protected String customerCellphone;
 
 
     public Account() {
-        this("00000", 2.5, "Przemek Kijak", "kijak@gmail.com", "79023176");
+        this("00000", 2.5, "Default name", "default@gmail.com", "79023176");
     }
 
     public Account(String number, double balance, String customerName, String customerMail, String customerCellphone) {
@@ -60,7 +60,7 @@ public class Account {
     }
 
     public void transferTo(Account reciever) {
-        int transferAmount = Integer.parseInt(JOptionPane.showInputDialog(null,"How much do you want to send for [" + reciever.number + "]?","Transfer Amount",JOptionPane.QUESTION_MESSAGE));
+        int transferAmount = Integer.parseInt(JOptionPane.showInputDialog(null,"How much do you want to send for [" + reciever.getCustomerName() + "]?","Transfer Amount",JOptionPane.QUESTION_MESSAGE));
         if(transferAmount > this.balance) {
             System.out.println("You don't have this amount of cash. You got only: " + this.balance);
         }
