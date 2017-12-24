@@ -1,3 +1,5 @@
+import javax.swing.*;
+
 public class Account {
 
     private String number;
@@ -40,6 +42,7 @@ public class Account {
     }
 
     public void deposit(double depositValue) {
+        depositValue = Double.parseDouble(JOptionPane.showInputDialog("How much you want to deposit?"));
         this.balance += depositValue;
         System.out.println("Desposit successfull - " + depositValue);
         System.out.println("[" + this.number + "] Your account balance is: " + this.balance);
