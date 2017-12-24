@@ -58,6 +58,11 @@ public class Account {
             System.out.println("["+this.number+"] Current amount on your account is: " + this.balance);
         }
     }
+
+    public void transferTo(Account reciever) {
+        String transferAmount = JOptionPane.showInputDialog(null,"How much do you want to send for [" + reciever.number + "]?","Transfer Amount",JOptionPane.QUESTION_MESSAGE);
+        
+    }
 }
 
 

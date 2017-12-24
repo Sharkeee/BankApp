@@ -11,10 +11,10 @@ public class Main {
 //                firstAccount.getNumber() + "\n" +
 //                firstAccount.getBalance() + "\n");
 
-                firstAccount.deposit();
-                firstAccount.withdraw();
+                //firstAccount.deposit();
+                //firstAccount.withdraw();
 
-                adminAccount.withdraw();
+               adminAccount.transferTo(firstAccount);
     }
 
 }
