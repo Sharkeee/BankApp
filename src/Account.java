@@ -41,12 +41,22 @@ public class Account {
         return customerCellphone;
     }
 
-    public void deposit(double depositValue) {
-        depositValue = Double.parseDouble(JOptionPane.showInputDialog("How much you want to deposit?"));
-        this.balance += depositValue;
-        System.out.println("Desposit successfull - " + depositValue);
+    public void deposit() {
+        double depositAmount = Double.parseDouble(JOptionPane.showInputDialog(null, "How much you want to deposit?", "[" + this.number + "] Deposit", JOptionPane.WARNING_MESSAGE));
+        this.balance += depositAmount;
+        System.out.println("Desposit successfull - " + depositAmount);
         System.out.println("[" + this.number + "] Your account balance is: " + this.balance);
+    }
 
+    public void withdraw() {
+        double withdrawAmount = Double.parseDouble(JOptionPane.showInputDialog(null, "How much you want to withdraw?", "[" + this.number + "] Withdraw", JOptionPane.QUESTION_MESSAGE));
+        if ((balance - withdrawAmount) < 0) {
+            System.out.println("[" + this.number + "] You want too much cash!");
+        } else {
+            this.balance -= withdrawAmount;
+            System.out.println("["+this.number+"] Withdraw successfull");
+            System.out.println("["+this.number+"] Current amount on your account is: " + this.balance);
+        }
     }
 }
 
